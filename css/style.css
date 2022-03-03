@@ -324,12 +324,19 @@ body._loaded {
 .header-wrapper__count_diamond._anim {
   animation: text 1s ease;
 }
+.header-wrapper__count_diamond._anim-buy {
+  animation: text-down 0.4s ease;
+}
 .header-wrapper__count_money._anim {
   animation: text 1s ease 0.7s;
 }
 .header-wrapper__count_money._anim-buy {
   animation: text-down 0.4s ease;
 }
+.header-wrapper__count_money._no-money {
+  animation: no-money 0.5s ease 2;
+}
+
 .main {
   height: calc(100vh - 120px);
   display: flex;
@@ -563,6 +570,11 @@ body._loaded {
   visibility: visible;
   animation: air-out 1s ease forwards 0s;
 }
+.shop__image-preview._active {
+  opacity: 1;
+  visibility: visible;
+  animation: rotate 2s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+}
 .shop__list {
   display: grid;
   grid-template: repeat(3, 1fr)/repeat(3, 1fr);
@@ -604,6 +616,7 @@ body._loaded {
 }
 .shop__cost {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin: 1.25rem 0;
@@ -618,7 +631,16 @@ body._loaded {
   visibility: visible;
   transition: all 0.7s ease 0.7s;
 }
-.shop__money {
+.shop__cost-money {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.625rem;
+}
+.shop__cost-diamond {
+  align-items: center;
+  display: none;
+}
+.shop__money, .shop__diamond {
   font-weight: 700;
   font-size: 1.5rem;
   line-height: 1.75rem;
@@ -638,8 +660,8 @@ body._loaded {
   position: absolute;
 }
 .game__enemy._caput {
-  transition: opacity 1.5s ease 0s;
   opacity: 0;
+  transition: opacity 2.5s ease 0s;
 }
 .game__enemy._caput::before {
   content: "";
@@ -675,6 +697,11 @@ body._loaded {
     max-width: 80%;
   }
 }
+@media (max-height: 23.125em) {
+  .game__enemy_one img {
+    max-width: 70%;
+  }
+}
 .game__enemy_two {
   top: 190px;
   left: 50%;
@@ -686,6 +713,15 @@ body._loaded {
   }
   .game__enemy_two img {
     max-width: 80%;
+  }
+}
+@media (max-height: 23.125em) {
+  .game__enemy_two {
+    top: 110px;
+    left: 45%;
+  }
+  .game__enemy_two img {
+    max-width: 70%;
   }
 }
 .game__enemy_three {
@@ -700,9 +736,14 @@ body._loaded {
     max-width: 50%;
   }
 }
+@media (max-height: 23.125em) {
+  .game__enemy_three img {
+    max-width: 40%;
+  }
+}
 .game__enemy_four {
   top: 140px;
-  left: 40px;
+  left: 60px;
 }
 @media (max-height: 31.25em) {
   .game__enemy_four {
@@ -713,21 +754,41 @@ body._loaded {
     max-width: 80%;
   }
 }
+@media (max-height: 23.125em) {
+  .game__enemy_four img {
+    max-width: 70%;
+  }
+}
 .game__enemy_five {
   display: none;
+  top: 40px;
+  left: 30%;
+}
+.game__enemy_five img {
+  max-width: 60%;
 }
 @media (max-height: 31.25em) {
   .game__enemy_five {
     display: block;
-    top: 70px;
-    left: 60px;
+    top: 100px;
+    left: 90px;
   }
   .game__enemy_five img {
     max-width: 60%;
   }
 }
+@media (max-height: 23.125em) {
+  .game__enemy_five img {
+    max-width: 50%;
+  }
+}
 .game__enemy_six {
   display: none;
+  top: 140px;
+  right: 10px;
+}
+.game__enemy_six img {
+  max-width: 70%;
 }
 @media (max-height: 31.25em) {
   .game__enemy_six {
@@ -739,14 +800,26 @@ body._loaded {
     max-width: 70%;
   }
 }
+@media (max-height: 23.125em) {
+  .game__enemy_six img {
+    max-width: 50%;
+  }
+}
 .game__enemy_seven {
   display: none;
+  top: 10px;
+  left: 50%;
 }
 @media (max-height: 31.25em) {
   .game__enemy_seven {
     display: block;
     top: 10px;
     left: 50%;
+  }
+}
+@media (max-height: 23.125em) {
+  .game__enemy_seven img {
+    max-width: 70%;
   }
 }
 .game__airplane {
@@ -757,8 +830,14 @@ body._loaded {
 }
 @media (max-height: 31.25em) {
   .game__airplane {
-    height: 7.8125rem;
+    height: 8.75rem;
     bottom: 0px;
+  }
+}
+@media (max-height: 23.125em) {
+  .game__airplane {
+    height: 8.75rem;
+    bottom: -70px;
   }
 }
 .game__image {
@@ -786,6 +865,11 @@ body._loaded {
 .game__image_one img {
   max-width: 120px;
   width: 120px;
+}
+@media (max-height: 23.125em) {
+  .game__image_one img {
+    width: 90px;
+  }
 }
 .game__box-gun {
   position: absolute;
@@ -1045,5 +1129,51 @@ body._loaded {
   }
   100% {
     background-position: 100%;
+  }
+}
+@keyframes rotate {
+  0% {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1) rotate(-30deg);
+  }
+  20% {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.2) rotate(-30deg);
+  }
+  95% {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1.2) rotate(330deg);
+  }
+  100% {
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1) rotate(330deg);
+  }
+}
+@keyframes no-money {
+  0% {
+    color: #fff;
+  }
+  59% {
+    color: #af5454;
+  }
+  60% {
+    color: #af5454;
+    transform: scale(1.2) rotate(5deg);
+  }
+  70% {
+    color: #af5454;
+    transform: scale(1.2) rotate(-15deg);
+  }
+  80% {
+    color: #af5454;
+    transform: scale(1.2) rotate(5deg);
+  }
+  90% {
+    color: #af5454;
+    transform: scale(1.2) rotate(-15deg);
+  }
+  100% {
+    color: #fff;
+    transform: scale(1) rotate(0deg);
   }
 }
