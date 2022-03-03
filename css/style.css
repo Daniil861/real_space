@@ -269,6 +269,11 @@ body._loaded {
   grid-template-columns: minmax(50px, 0.5fr) 1fr 1fr;
   gap: 20px;
 }
+@media (max-height: 31.25em) {
+  .header-wrapper_no-main {
+    display: none;
+  }
+}
 .header-wrapper__item {
   position: relative;
   display: flex;
@@ -646,19 +651,42 @@ body._loaded {
   background: url("../img/game/bang.gif") center/contain no-repeat;
   z-index: 5;
 }
+.game__enemy._anim-one {
+  animation: move-enemy 30s ease infinite;
+}
+.game__enemy._anim-two {
+  animation: move-enemy 40s ease infinite;
+}
+.game__enemy._anim-three {
+  animation: move-enemy 25s ease infinite;
+}
+.game__enemy._anim-four {
+  animation: move-enemy 45s ease infinite;
+}
 .game__enemy_one {
   top: 10px;
   left: 10px;
 }
-.game__enemy_one._anim-one {
-  animation: move-enemy 30s ease infinite;
+@media (max-height: 31.25em) {
+  .game__enemy_one {
+    left: 230px;
+  }
+  .game__enemy_one img {
+    max-width: 80%;
+  }
 }
 .game__enemy_two {
   top: 190px;
   left: 50%;
 }
-.game__enemy_two._anim-two {
-  animation: move-enemy 40s ease infinite;
+@media (max-height: 31.25em) {
+  .game__enemy_two {
+    top: 140px;
+    left: 45%;
+  }
+  .game__enemy_two img {
+    max-width: 80%;
+  }
 }
 .game__enemy_three {
   top: 10px;
@@ -667,21 +695,71 @@ body._loaded {
 .game__enemy_three img {
   max-width: 70%;
 }
-.game__enemy_three._anim-three {
-  animation: move-enemy 25s ease infinite;
+@media (max-height: 31.25em) {
+  .game__enemy_three img {
+    max-width: 50%;
+  }
 }
 .game__enemy_four {
   top: 140px;
   left: 40px;
 }
-.game__enemy._anim-four {
-  animation: move-enemy 45s ease infinite;
+@media (max-height: 31.25em) {
+  .game__enemy_four {
+    top: 50px;
+    left: 90px;
+  }
+  .game__enemy_four img {
+    max-width: 80%;
+  }
+}
+.game__enemy_five {
+  display: none;
+}
+@media (max-height: 31.25em) {
+  .game__enemy_five {
+    display: block;
+    top: 70px;
+    left: 60px;
+  }
+  .game__enemy_five img {
+    max-width: 60%;
+  }
+}
+.game__enemy_six {
+  display: none;
+}
+@media (max-height: 31.25em) {
+  .game__enemy_six {
+    display: block;
+    top: 110px;
+    right: 10px;
+  }
+  .game__enemy_six img {
+    max-width: 70%;
+  }
+}
+.game__enemy_seven {
+  display: none;
+}
+@media (max-height: 31.25em) {
+  .game__enemy_seven {
+    display: block;
+    top: 10px;
+    left: 50%;
+  }
 }
 .game__airplane {
   position: absolute;
   width: 100%;
   height: 9.375rem;
   bottom: 15px;
+}
+@media (max-height: 31.25em) {
+  .game__airplane {
+    height: 7.8125rem;
+    bottom: 0px;
+  }
 }
 .game__image {
   position: absolute;
@@ -699,6 +777,11 @@ body._loaded {
 }
 .game__image img {
   max-width: 100px;
+}
+@media (max-height: 31.25em) {
+  .game__image img {
+    max-width: 70px;
+  }
 }
 .game__image_one img {
   max-width: 120px;
@@ -879,13 +962,13 @@ body._loaded {
     left: 49%;
   }
   40% {
-    left: 15%;
+    left: 10%;
   }
   60% {
     left: 50%;
   }
   80% {
-    left: 85%;
+    left: 90%;
   }
   100% {
     left: 50%;
