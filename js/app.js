@@ -77,10 +77,12 @@
             document.querySelector(".shop__image-list_seven").classList.add("_payed");
         }
     }
-    if (document.querySelector(".game")) {
+    if (document.querySelector(".game")) if (sessionStorage.getItem("active-airplane")) {
         let number_active_airplane = sessionStorage.getItem("active-airplane");
-        console.log(number_active_airplane);
         game_airplans[number_active_airplane - 1].classList.add("_visible");
+    } else {
+        sessionStorage.setItem("active-airplane", 4);
+        game_airplans[3].classList.add("_visible");
     }
     document.addEventListener("click", (e => {
         let targetElement = e.target;
