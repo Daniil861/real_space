@@ -342,13 +342,16 @@
                 sessionStorage.setItem("price-7", 0);
             }
         }
-        if (targetElement.closest(".header-wrapper__icon_arrow")) if (document.querySelector(".shop__image-preview_four").classList.contains("_visible") && document.querySelector(".shop__image-list_four").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 4); else if (document.querySelector(".shop__image-preview_one").classList.contains("_visible") && document.querySelector(".shop__image-list_one").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 1); else if (document.querySelector(".shop__image-preview_two").classList.contains("_visible") && document.querySelector(".shop__image-list_two").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 2); else if (document.querySelector(".shop__image-preview_three").classList.contains("_visible") && document.querySelector(".shop__image-list_three").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 3); else if (document.querySelector(".shop__image-preview_four").classList.contains("_visible") && document.querySelector(".shop__image-list_four").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 4); else if (document.querySelector(".shop__image-preview_five").classList.contains("_visible") && document.querySelector(".shop__image-list_five").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 5); else if (document.querySelector(".shop__image-preview_six").classList.contains("_visible") && document.querySelector(".shop__image-list_six").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 6); else if (document.querySelector(".shop__image-preview_seven").classList.contains("_visible") && document.querySelector(".shop__image-list_seven").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 7);
+        if (targetElement.closest(".header-wrapper__icon_arrow")) if (document.querySelector(".shop__image-preview_four").classList.contains("_visible") && document.querySelector(".shop__image-list_four").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 4); else if (document.querySelector(".shop__image-preview_one").classList.contains("_visible") && document.querySelector(".shop__image-list_one").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 1); else if (document.querySelector(".shop__image-preview_two").classList.contains("_visible") && document.querySelector(".shop__image-list_two").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 2); else if (document.querySelector(".shop__image-preview_three").classList.contains("_visible") && document.querySelector(".shop__image-list_three").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 3); else if (document.querySelector(".shop__image-preview_five").classList.contains("_visible") && document.querySelector(".shop__image-list_five").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 5); else if (document.querySelector(".shop__image-preview_six").classList.contains("_visible") && document.querySelector(".shop__image-list_six").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 6); else if (document.querySelector(".shop__image-preview_seven").classList.contains("_visible") && document.querySelector(".shop__image-list_seven").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 7);
         if (targetElement.closest(".game__airplane")) create_gun();
     }));
     let count_enem_one = 0;
     let count_enem_two = 0;
     let count_enem_three = 0;
     let count_enem_four = 0;
+    let count_enem_five = 0;
+    let count_enem_six = 0;
+    let count_enem_seven = 0;
     function create_gun() {
         let enemy = document.querySelectorAll(".game__enemy");
         let enemy_loose = document.querySelectorAll(".game__enemy._caput");
@@ -366,6 +369,9 @@
         let enemy_two = document.querySelector(".game__enemy_two");
         let enemy_three = document.querySelector(".game__enemy_three");
         let enemy_four = document.querySelector(".game__enemy_four");
+        let enemy_five = document.querySelector(".game__enemy_five");
+        let enemy_six = document.querySelector(".game__enemy_six");
+        let enemy_seven = document.querySelector(".game__enemy_seven");
         let enemy_one_top = enemy_one.getBoundingClientRect().top;
         let enemy_one_left = enemy_one.getBoundingClientRect().left;
         let enemy_two_top = enemy_two.getBoundingClientRect().top;
@@ -374,9 +380,15 @@
         let enemy_three_left = enemy_three.getBoundingClientRect().left;
         let enemy_four_top = enemy_four.getBoundingClientRect().top;
         let enemy_four_left = enemy_four.getBoundingClientRect().left;
+        let enemy_five_top = enemy_five.getBoundingClientRect().top;
+        let enemy_five_left = enemy_five.getBoundingClientRect().left;
+        let enemy_six_top = enemy_six.getBoundingClientRect().top;
+        let enemy_six_left = enemy_six.getBoundingClientRect().left;
+        let enemy_seven_top = enemy_seven.getBoundingClientRect().top;
+        let enemy_seven_left = enemy_seven.getBoundingClientRect().left;
         let air_top = air.getBoundingClientRect().top;
         let air_left = air.getBoundingClientRect().left;
-        if (enemy_loose.length < enemy.length) if (air_left - enemy_one_left > -70 && air_left - enemy_one_left < 70) {
+        if (enemy_loose.length < enemy.length) if (air_left - enemy_one_left > -50 && air_left - enemy_one_left < 50) {
             let path = air_top - enemy_one_top;
             setTimeout((() => {
                 gun_one.style.transform = `translateY(-${path}px)`;
@@ -387,7 +399,7 @@
                 gun_two.style.display = `none`;
             }), 1e3);
             count_enem_one++;
-            if (40 == count_enem_one) {
+            if (10 == count_enem_one) {
                 setTimeout((() => {
                     enemy_one.classList.add("_caput");
                     let b = +document.querySelector(".header-wrapper__count_money").innerHTML;
@@ -404,7 +416,7 @@
                     enemy_one.style.display = "none";
                 }), 1500);
             }
-        } else if (air_left - enemy_two_left > -100 && air_left - enemy_two_left < 100) {
+        } else if (air_left - enemy_two_left > -50 && air_left - enemy_two_left < 50) {
             let path = air_top - enemy_two_top;
             setTimeout((() => {
                 gun_one.style.transform = `translateY(-${path}px)`;
@@ -415,7 +427,7 @@
                 gun_two.style.display = `none`;
             }), 1e3);
             count_enem_two++;
-            if (20 == count_enem_two) {
+            if (10 == count_enem_two) {
                 setTimeout((() => {
                     enemy_two.classList.add("_caput");
                     let b = +document.querySelector(".header-wrapper__count_money").innerHTML;
@@ -432,7 +444,7 @@
                     enemy_two.style.display = "none";
                 }), 1500);
             }
-        } else if (air_left - enemy_three_left > -70 && air_left - enemy_three_left < 70) {
+        } else if (air_left - enemy_three_left > -50 && air_left - enemy_three_left < 50) {
             let path = air_top - enemy_three_top;
             setTimeout((() => {
                 gun_one.style.transform = `translateY(-${path}px)`;
@@ -443,7 +455,7 @@
                 gun_two.style.display = `none`;
             }), 1e3);
             count_enem_three++;
-            if (25 == count_enem_three) {
+            if (10 == count_enem_three) {
                 setTimeout((() => {
                     enemy_three.classList.add("_caput");
                     let b = +document.querySelector(".header-wrapper__count_money").innerHTML;
@@ -460,7 +472,7 @@
                     enemy_three.style.display = "none";
                 }), 1500);
             }
-        } else if (air_left - enemy_four_left > -100 && air_left - enemy_four_left < 100) {
+        } else if (air_left - enemy_four_left > -50 && air_left - enemy_four_left < 50) {
             let path = air_top - enemy_four_top;
             setTimeout((() => {
                 gun_one.style.transform = `translateY(-${path}px)`;
@@ -488,6 +500,90 @@
                     enemy_four.style.display = "none";
                 }), 1500);
             }
+        } else if (air_left - enemy_five_left > -50 && air_left - enemy_five_left < 50) {
+            let path = air_top - enemy_five_top;
+            setTimeout((() => {
+                gun_one.style.transform = `translateY(-${path}px)`;
+                gun_two.style.transform = `translateY(-${path}px)`;
+            }), 100);
+            setTimeout((() => {
+                gun_one.style.display = `none`;
+                gun_two.style.display = `none`;
+            }), 1e3);
+            count_enem_five++;
+            if (10 == count_enem_five) {
+                setTimeout((() => {
+                    enemy_five.classList.add("_caput");
+                    let b = +document.querySelector(".header-wrapper__count_money").innerHTML;
+                    document.querySelector(".header-wrapper__count_money").innerHTML = b + 1e4;
+                    sessionStorage.setItem("money", b + 1e4);
+                    document.querySelector(".header-wrapper__icon_money").classList.add("_anim");
+                    document.querySelector(".header-wrapper__count_money").classList.add("_anim");
+                    setTimeout((() => {
+                        document.querySelector(".header-wrapper__icon_money").classList.remove("_anim");
+                        document.querySelector(".header-wrapper__count_money").classList.remove("_anim");
+                    }), 1e3);
+                }), 1300);
+                setTimeout((() => {
+                    enemy_five.style.display = "none";
+                }), 1500);
+            }
+        } else if (air_left - enemy_six_left > -50 && air_left - enemy_six_left < 50) {
+            let path = air_top - enemy_six_top;
+            setTimeout((() => {
+                gun_one.style.transform = `translateY(-${path}px)`;
+                gun_two.style.transform = `translateY(-${path}px)`;
+            }), 100);
+            setTimeout((() => {
+                gun_one.style.display = `none`;
+                gun_two.style.display = `none`;
+            }), 1e3);
+            count_enem_six++;
+            if (10 == count_enem_six) {
+                setTimeout((() => {
+                    enemy_six.classList.add("_caput");
+                    let b = +document.querySelector(".header-wrapper__count_money").innerHTML;
+                    document.querySelector(".header-wrapper__count_money").innerHTML = b + 1e4;
+                    sessionStorage.setItem("money", b + 1e4);
+                    document.querySelector(".header-wrapper__icon_money").classList.add("_anim");
+                    document.querySelector(".header-wrapper__count_money").classList.add("_anim");
+                    setTimeout((() => {
+                        document.querySelector(".header-wrapper__icon_money").classList.remove("_anim");
+                        document.querySelector(".header-wrapper__count_money").classList.remove("_anim");
+                    }), 1e3);
+                }), 1300);
+                setTimeout((() => {
+                    enemy_six.style.display = "none";
+                }), 1500);
+            }
+        } else if (air_left - enemy_seven_left > -50 && air_left - enemy_seven_left < 50) {
+            let path = air_top - enemy_seven_top;
+            setTimeout((() => {
+                gun_one.style.transform = `translateY(-${path}px)`;
+                gun_two.style.transform = `translateY(-${path}px)`;
+            }), 100);
+            setTimeout((() => {
+                gun_one.style.display = `none`;
+                gun_two.style.display = `none`;
+            }), 1e3);
+            count_enem_seven++;
+            if (10 == count_enem_seven) {
+                setTimeout((() => {
+                    enemy_seven.classList.add("_caput");
+                    let b = +document.querySelector(".header-wrapper__count_money").innerHTML;
+                    document.querySelector(".header-wrapper__count_money").innerHTML = b + 1e4;
+                    sessionStorage.setItem("money", b + 1e4);
+                    document.querySelector(".header-wrapper__icon_money").classList.add("_anim");
+                    document.querySelector(".header-wrapper__count_money").classList.add("_anim");
+                    setTimeout((() => {
+                        document.querySelector(".header-wrapper__icon_money").classList.remove("_anim");
+                        document.querySelector(".header-wrapper__count_money").classList.remove("_anim");
+                    }), 1e3);
+                }), 1300);
+                setTimeout((() => {
+                    enemy_seven.style.display = "none";
+                }), 1500);
+            }
         } else {
             setTimeout((() => {
                 gun_one.style.transform = `translateY(-1000px)`;
@@ -498,7 +594,6 @@
                 gun_two.style.display = `none`;
             }), 1e3);
         } else document.querySelector(".play").classList.add("_active");
-        console.log(count_enem_one, count_enem_two, count_enem_three, count_enem_four);
     }
     window["FLS"] = true;
     isWebp();
