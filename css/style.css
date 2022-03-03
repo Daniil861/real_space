@@ -514,7 +514,12 @@ body._loaded {
 }
 @media (max-height: 45em) {
   .bonus__button {
-    margin-top: 0.625rem;
+    margin-top: 5rem;
+  }
+}
+@media (max-height: 38.75em) {
+  .bonus__button {
+    margin-top: 1.25rem;
   }
 }
 
