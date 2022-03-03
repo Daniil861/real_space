@@ -67,6 +67,7 @@
         if (0 == sessionStorage.getItem("price-5")) {
             document.querySelector(".shop__image-list_five").dataset.price = 0;
             document.querySelector(".shop__image-list_five").classList.add("_payed");
+            document.querySelector(".shop__diamond").textContent = 0;
         }
         if (0 == sessionStorage.getItem("price-6")) {
             document.querySelector(".shop__image-list_six").dataset.price = 0;
@@ -118,7 +119,9 @@
         }
         if (targetElement.closest(".shop__image-list_one")) {
             document.querySelector(".shop__cost").classList.remove("_visible");
+            document.querySelector(".shop__cost-diamond").style.display = "none";
             airplans.forEach((el => {
+                if (el.classList.contains("_active")) el.classList.remove("_active");
                 if (el.classList.contains("_visible")) {
                     el.classList.add("_visible-out");
                     el.classList.remove("_visible");
@@ -135,7 +138,9 @@
             document.querySelector(".shop__money").textContent = price;
         } else if (targetElement.closest(".shop__image-list_two")) {
             document.querySelector(".shop__cost").classList.remove("_visible");
+            document.querySelector(".shop__cost-diamond").style.display = "none";
             airplans.forEach((el => {
+                if (el.classList.contains("_active")) el.classList.remove("_active");
                 if (el.classList.contains("_visible")) {
                     el.classList.add("_visible-out");
                     el.classList.remove("_visible");
@@ -152,7 +157,9 @@
             document.querySelector(".shop__money").textContent = price;
         } else if (targetElement.closest(".shop__image-list_three")) {
             document.querySelector(".shop__cost").classList.remove("_visible");
+            document.querySelector(".shop__cost-diamond").style.display = "none";
             airplans.forEach((el => {
+                if (el.classList.contains("_active")) el.classList.remove("_active");
                 if (el.classList.contains("_visible")) {
                     el.classList.add("_visible-out");
                     el.classList.remove("_visible");
@@ -169,7 +176,9 @@
             document.querySelector(".shop__money").textContent = price;
         } else if (targetElement.closest(".shop__image-list_four")) {
             document.querySelector(".shop__cost").classList.remove("_visible");
+            document.querySelector(".shop__cost-diamond").style.display = "none";
             airplans.forEach((el => {
+                if (el.classList.contains("_active")) el.classList.remove("_active");
                 if (el.classList.contains("_visible")) {
                     el.classList.add("_visible-out");
                     el.classList.remove("_visible");
@@ -186,7 +195,9 @@
             document.querySelector(".shop__money").textContent = price;
         } else if (targetElement.closest(".shop__image-list_five")) {
             document.querySelector(".shop__cost").classList.remove("_visible");
+            document.querySelector(".shop__cost-diamond").style.display = "flex";
             airplans.forEach((el => {
+                if (el.classList.contains("_active")) el.classList.remove("_active");
                 if (el.classList.contains("_visible")) {
                     el.classList.add("_visible-out");
                     el.classList.remove("_visible");
@@ -203,7 +214,9 @@
             document.querySelector(".shop__money").textContent = price;
         } else if (targetElement.closest(".shop__image-list_six")) {
             document.querySelector(".shop__cost").classList.remove("_visible");
+            document.querySelector(".shop__cost-diamond").style.display = "none";
             airplans.forEach((el => {
+                if (el.classList.contains("_active")) el.classList.remove("_active");
                 if (el.classList.contains("_visible")) {
                     el.classList.add("_visible-out");
                     el.classList.remove("_visible");
@@ -220,7 +233,9 @@
             document.querySelector(".shop__money").textContent = price;
         } else if (targetElement.closest(".shop__image-list_seven")) {
             document.querySelector(".shop__cost").classList.remove("_visible");
+            document.querySelector(".shop__cost-diamond").style.display = "none";
             airplans.forEach((el => {
+                if (el.classList.contains("_active")) el.classList.remove("_active");
                 if (el.classList.contains("_visible")) {
                     el.classList.add("_visible-out");
                     el.classList.remove("_visible");
@@ -245,11 +260,17 @@
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
+                    document.querySelector(".shop__image-preview_one").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_one").classList.add("_payed");
                 document.querySelector(".shop__image-list_one").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 sessionStorage.setItem("price-1", 0);
+            } else {
+                document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
+                setTimeout((() => {
+                    document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
+                }), 1e3);
             }
         } else if (targetElement.closest(".shop__image-preview_two")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
@@ -260,11 +281,17 @@
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
+                    document.querySelector(".shop__image-preview_two").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_two").classList.add("_payed");
                 document.querySelector(".shop__image-list_two").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 sessionStorage.setItem("price-2", 0);
+            } else {
+                document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
+                setTimeout((() => {
+                    document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
+                }), 1e3);
             }
         } else if (targetElement.closest(".shop__image-preview_three")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
@@ -275,11 +302,17 @@
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
+                    document.querySelector(".shop__image-preview_three").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_three").classList.add("_payed");
                 document.querySelector(".shop__image-list_three").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 sessionStorage.setItem("price-3", 0);
+            } else {
+                document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
+                setTimeout((() => {
+                    document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
+                }), 1e3);
             }
         } else if (targetElement.closest(".shop__image-preview_four")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
@@ -290,26 +323,43 @@
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
+                    document.querySelector(".shop__image-preview_four").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_four").classList.add("_payed");
                 document.querySelector(".shop__image-list_four").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 sessionStorage.setItem("price-4", 0);
+            } else {
+                document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
+                setTimeout((() => {
+                    document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
+                }), 1e3);
             }
         } else if (targetElement.closest(".shop__image-preview_five")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
+            let diamonds = +document.querySelector(".header-wrapper__count_diamond").innerHTML;
             let price = +document.querySelector(".shop__image-list_five").dataset.price;
-            if (points >= price && 0 != document.querySelector(".shop__image-list_five").dataset.price) {
+            if (points >= price && 0 != document.querySelector(".shop__image-list_five").dataset.price && diamonds > 4e4) {
                 document.querySelector(".header-wrapper__count_money").innerHTML = points - price;
+                document.querySelector(".header-wrapper__count_diamond").innerHTML = diamonds - 4e4;
                 sessionStorage.setItem("money", points - price);
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
+                document.querySelector(".header-wrapper__count_diamond").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
+                    document.querySelector(".header-wrapper__count_diamond").classList.remove("_anim-buy");
+                    document.querySelector(".shop__image-preview_five").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_five").classList.add("_payed");
                 document.querySelector(".shop__image-list_five").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
+                document.querySelector(".shop__diamond").textContent = 0;
                 sessionStorage.setItem("price-5", 0);
+            } else {
+                document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
+                setTimeout((() => {
+                    document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
+                }), 1e3);
             }
         } else if (targetElement.closest(".shop__image-preview_six")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
@@ -320,11 +370,17 @@
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
+                    document.querySelector(".shop__image-preview_six").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_six").classList.add("_payed");
                 document.querySelector(".shop__image-list_six").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 sessionStorage.setItem("price-6", 0);
+            } else {
+                document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
+                setTimeout((() => {
+                    document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
+                }), 1e3);
             }
         } else if (targetElement.closest(".shop__image-preview_seven")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
@@ -335,11 +391,17 @@
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
+                    document.querySelector(".shop__image-preview_seven").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_seven").classList.add("_payed");
                 document.querySelector(".shop__image-list_seven").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 sessionStorage.setItem("price-7", 0);
+            } else {
+                document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
+                setTimeout((() => {
+                    document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
+                }), 1e3);
             }
         }
         if (targetElement.closest(".header-wrapper__icon_arrow")) if (document.querySelector(".shop__image-preview_four").classList.contains("_visible") && document.querySelector(".shop__image-list_four").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 4); else if (document.querySelector(".shop__image-preview_one").classList.contains("_visible") && document.querySelector(".shop__image-list_one").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 1); else if (document.querySelector(".shop__image-preview_two").classList.contains("_visible") && document.querySelector(".shop__image-list_two").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 2); else if (document.querySelector(".shop__image-preview_three").classList.contains("_visible") && document.querySelector(".shop__image-list_three").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 3); else if (document.querySelector(".shop__image-preview_five").classList.contains("_visible") && document.querySelector(".shop__image-list_five").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 5); else if (document.querySelector(".shop__image-preview_six").classList.contains("_visible") && document.querySelector(".shop__image-list_six").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 6); else if (document.querySelector(".shop__image-preview_seven").classList.contains("_visible") && document.querySelector(".shop__image-list_seven").classList.contains("_payed")) sessionStorage.setItem("active-airplane", 7);
@@ -399,7 +461,7 @@
                 gun_two.style.display = `none`;
             }), 1e3);
             count_enem_one++;
-            if (10 == count_enem_one) {
+            if (20 == count_enem_one) {
                 setTimeout((() => {
                     enemy_one.classList.add("_caput");
                     let b = +document.querySelector(".header-wrapper__count_money").innerHTML;
@@ -414,9 +476,10 @@
                 }), 1300);
                 setTimeout((() => {
                     enemy_one.style.display = "none";
-                }), 1500);
+                    enemy_five.style.display = "block";
+                }), 2e3);
             }
-        } else if (air_left - enemy_two_left > -50 && air_left - enemy_two_left < 50) {
+        } else if (air_left - enemy_two_left > -70 && air_left - enemy_two_left < 70) {
             let path = air_top - enemy_two_top;
             setTimeout((() => {
                 gun_one.style.transform = `translateY(-${path}px)`;
@@ -442,7 +505,8 @@
                 }), 1300);
                 setTimeout((() => {
                     enemy_two.style.display = "none";
-                }), 1500);
+                    enemy_six.style.display = "block";
+                }), 2e3);
             }
         } else if (air_left - enemy_three_left > -50 && air_left - enemy_three_left < 50) {
             let path = air_top - enemy_three_top;
@@ -455,7 +519,7 @@
                 gun_two.style.display = `none`;
             }), 1e3);
             count_enem_three++;
-            if (10 == count_enem_three) {
+            if (5 == count_enem_three) {
                 setTimeout((() => {
                     enemy_three.classList.add("_caput");
                     let b = +document.querySelector(".header-wrapper__count_money").innerHTML;
@@ -470,9 +534,10 @@
                 }), 1300);
                 setTimeout((() => {
                     enemy_three.style.display = "none";
-                }), 1500);
+                    enemy_seven.style.display = "block";
+                }), 2e3);
             }
-        } else if (air_left - enemy_four_left > -50 && air_left - enemy_four_left < 50) {
+        } else if (air_left - enemy_four_left > -70 && air_left - enemy_four_left < 70) {
             let path = air_top - enemy_four_top;
             setTimeout((() => {
                 gun_one.style.transform = `translateY(-${path}px)`;
@@ -483,7 +548,7 @@
                 gun_two.style.display = `none`;
             }), 1e3);
             count_enem_four++;
-            if (10 == count_enem_four) {
+            if (20 == count_enem_four) {
                 setTimeout((() => {
                     enemy_four.classList.add("_caput");
                     let b = +document.querySelector(".header-wrapper__count_money").innerHTML;
@@ -498,9 +563,9 @@
                 }), 1300);
                 setTimeout((() => {
                     enemy_four.style.display = "none";
-                }), 1500);
+                }), 2e3);
             }
-        } else if (air_left - enemy_five_left > -50 && air_left - enemy_five_left < 50) {
+        } else if (air_left - enemy_five_left > -70 && air_left - enemy_five_left < 70) {
             let path = air_top - enemy_five_top;
             setTimeout((() => {
                 gun_one.style.transform = `translateY(-${path}px)`;
@@ -511,7 +576,7 @@
                 gun_two.style.display = `none`;
             }), 1e3);
             count_enem_five++;
-            if (10 == count_enem_five) {
+            if (3 == count_enem_five) {
                 setTimeout((() => {
                     enemy_five.classList.add("_caput");
                     let b = +document.querySelector(".header-wrapper__count_money").innerHTML;
@@ -526,7 +591,7 @@
                 }), 1300);
                 setTimeout((() => {
                     enemy_five.style.display = "none";
-                }), 1500);
+                }), 2e3);
             }
         } else if (air_left - enemy_six_left > -50 && air_left - enemy_six_left < 50) {
             let path = air_top - enemy_six_top;
@@ -554,7 +619,7 @@
                 }), 1300);
                 setTimeout((() => {
                     enemy_six.style.display = "none";
-                }), 1500);
+                }), 2e3);
             }
         } else if (air_left - enemy_seven_left > -50 && air_left - enemy_seven_left < 50) {
             let path = air_top - enemy_seven_top;
@@ -582,7 +647,7 @@
                 }), 1300);
                 setTimeout((() => {
                     enemy_seven.style.display = "none";
-                }), 1500);
+                }), 2e3);
             }
         } else {
             setTimeout((() => {
