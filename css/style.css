@@ -631,6 +631,21 @@ body._loaded {
   visibility: visible;
   transition: all 0.7s ease 0.7s;
 }
+.shop__cost._visible .shop__button {
+  opacity: 1;
+  visibility: visible;
+}
+.shop__button {
+  margin-top: 0rem;
+  margin-bottom: 1.5625rem;
+  opacity: 0;
+  visibility: hidden;
+}
+.shop__button p {
+  font-size: 0.875rem;
+  line-height: 1.125rem;
+  padding: 0.3125rem 2.1875rem;
+}
 .shop__cost-money {
   display: flex;
   align-items: center;
