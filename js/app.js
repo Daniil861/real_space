@@ -250,7 +250,7 @@
             let price = targetElement.closest(".shop__image-list_seven").dataset.price;
             document.querySelector(".shop__money").textContent = price;
         }
-        if (targetElement.closest(".shop__image-preview_one")) {
+        if (targetElement.closest(".shop__image-preview_one") || targetElement.closest(".shop__button") && document.querySelector(".shop__image-preview_one._visible")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let price = +document.querySelector(".shop__image-list_one").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_one").dataset.price) {
@@ -271,7 +271,7 @@
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
                 }), 1e3);
             }
-        } else if (targetElement.closest(".shop__image-preview_two")) {
+        } else if (targetElement.closest(".shop__image-preview_two") || targetElement.closest(".shop__button") && document.querySelector(".shop__image-preview_two._visible")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let price = +document.querySelector(".shop__image-list_two").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_two").dataset.price) {
@@ -292,7 +292,7 @@
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
                 }), 1e3);
             }
-        } else if (targetElement.closest(".shop__image-preview_three")) {
+        } else if (targetElement.closest(".shop__image-preview_three") || targetElement.closest(".shop__button") && document.querySelector(".shop__image-preview_three._visible")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let price = +document.querySelector(".shop__image-list_three").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_three").dataset.price) {
@@ -313,7 +313,7 @@
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
                 }), 1e3);
             }
-        } else if (targetElement.closest(".shop__image-preview_four")) {
+        } else if (targetElement.closest(".shop__image-preview_four") || targetElement.closest(".shop__button") && document.querySelector(".shop__image-preview_four._visible")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let price = +document.querySelector(".shop__image-list_four").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_four").dataset.price) {
@@ -334,7 +334,7 @@
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
                 }), 1e3);
             }
-        } else if (targetElement.closest(".shop__image-preview_five")) {
+        } else if (targetElement.closest(".shop__image-preview_five") || targetElement.closest(".shop__button") && document.querySelector(".shop__image-preview_five._visible")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let diamonds = +document.querySelector(".header-wrapper__count_diamond").innerHTML;
             let price = +document.querySelector(".shop__image-list_five").dataset.price;
@@ -360,7 +360,7 @@
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
                 }), 1e3);
             }
-        } else if (targetElement.closest(".shop__image-preview_six")) {
+        } else if (targetElement.closest(".shop__image-preview_six") || targetElement.closest(".shop__button") && document.querySelector(".shop__image-preview_six._visible")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let price = +document.querySelector(".shop__image-list_six").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_six").dataset.price) {
@@ -381,7 +381,7 @@
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
                 }), 1e3);
             }
-        } else if (targetElement.closest(".shop__image-preview_seven")) {
+        } else if (targetElement.closest(".shop__image-preview_seven") || targetElement.closest(".shop__button") && document.querySelector(".shop__image-preview_seven._visible")) {
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let price = +document.querySelector(".shop__image-list_seven").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_seven").dataset.price) {
