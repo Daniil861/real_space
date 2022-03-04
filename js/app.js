@@ -128,7 +128,7 @@
                 }
             }));
             setTimeout((() => {
-                document.querySelector(".shop__cost").classList.add("_visible");
+                if (0 != sessionStorage.getItem("price-1")) document.querySelector(".shop__cost").classList.add("_visible");
                 airplans.forEach((el => {
                     if (el.classList.contains("_visible-out")) el.classList.remove("_visible-out");
                 }));
@@ -147,7 +147,7 @@
                 }
             }));
             setTimeout((() => {
-                document.querySelector(".shop__cost").classList.add("_visible");
+                if (0 != sessionStorage.getItem("price-2")) document.querySelector(".shop__cost").classList.add("_visible");
                 airplans.forEach((el => {
                     if (el.classList.contains("_visible-out")) el.classList.remove("_visible-out");
                 }));
@@ -166,7 +166,7 @@
                 }
             }));
             setTimeout((() => {
-                document.querySelector(".shop__cost").classList.add("_visible");
+                if (0 != sessionStorage.getItem("price-3")) document.querySelector(".shop__cost").classList.add("_visible");
                 airplans.forEach((el => {
                     if (el.classList.contains("_visible-out")) el.classList.remove("_visible-out");
                 }));
@@ -185,7 +185,6 @@
                 }
             }));
             setTimeout((() => {
-                document.querySelector(".shop__cost").classList.add("_visible");
                 airplans.forEach((el => {
                     if (el.classList.contains("_visible-out")) el.classList.remove("_visible-out");
                 }));
@@ -204,7 +203,7 @@
                 }
             }));
             setTimeout((() => {
-                document.querySelector(".shop__cost").classList.add("_visible");
+                if (0 != sessionStorage.getItem("price-5")) document.querySelector(".shop__cost").classList.add("_visible");
                 airplans.forEach((el => {
                     if (el.classList.contains("_visible-out")) el.classList.remove("_visible-out");
                 }));
@@ -223,7 +222,7 @@
                 }
             }));
             setTimeout((() => {
-                document.querySelector(".shop__cost").classList.add("_visible");
+                if (0 != sessionStorage.getItem("price-6")) document.querySelector(".shop__cost").classList.add("_visible");
                 airplans.forEach((el => {
                     if (el.classList.contains("_visible-out")) el.classList.remove("_visible-out");
                 }));
@@ -242,7 +241,7 @@
                 }
             }));
             setTimeout((() => {
-                document.querySelector(".shop__cost").classList.add("_visible");
+                if (0 != sessionStorage.getItem("price-7")) document.querySelector(".shop__cost").classList.add("_visible");
                 airplans.forEach((el => {
                     if (el.classList.contains("_visible-out")) el.classList.remove("_visible-out");
                 }));
@@ -255,18 +254,18 @@
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let price = +document.querySelector(".shop__image-list_one").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_one").dataset.price) {
+                document.querySelector(".shop__image-preview_one").classList.add("_active");
                 document.querySelector(".header-wrapper__count_money").innerHTML = points - price;
                 sessionStorage.setItem("money", points - price);
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
-                    document.querySelector(".shop__image-preview_one").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_one").classList.add("_payed");
                 document.querySelector(".shop__image-list_one").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 sessionStorage.setItem("price-1", 0);
-            } else {
+            } else if (points < price) {
                 document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
@@ -276,18 +275,18 @@
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let price = +document.querySelector(".shop__image-list_two").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_two").dataset.price) {
+                document.querySelector(".shop__image-preview_two").classList.add("_active");
                 document.querySelector(".header-wrapper__count_money").innerHTML = points - price;
                 sessionStorage.setItem("money", points - price);
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
-                    document.querySelector(".shop__image-preview_two").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_two").classList.add("_payed");
                 document.querySelector(".shop__image-list_two").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 sessionStorage.setItem("price-2", 0);
-            } else {
+            } else if (points < price) {
                 document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
@@ -297,18 +296,18 @@
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let price = +document.querySelector(".shop__image-list_three").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_three").dataset.price) {
+                document.querySelector(".shop__image-preview_three").classList.add("_active");
                 document.querySelector(".header-wrapper__count_money").innerHTML = points - price;
                 sessionStorage.setItem("money", points - price);
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
-                    document.querySelector(".shop__image-preview_three").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_three").classList.add("_payed");
                 document.querySelector(".shop__image-list_three").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 sessionStorage.setItem("price-3", 0);
-            } else {
+            } else if (points < price) {
                 document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
@@ -318,18 +317,18 @@
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let price = +document.querySelector(".shop__image-list_four").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_four").dataset.price) {
+                document.querySelector(".shop__image-preview_four").classList.add("_active");
                 document.querySelector(".header-wrapper__count_money").innerHTML = points - price;
                 sessionStorage.setItem("money", points - price);
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
-                    document.querySelector(".shop__image-preview_four").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_four").classList.add("_payed");
                 document.querySelector(".shop__image-list_four").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 sessionStorage.setItem("price-4", 0);
-            } else {
+            } else if (points < price) {
                 document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
@@ -340,6 +339,7 @@
             let diamonds = +document.querySelector(".header-wrapper__count_diamond").innerHTML;
             let price = +document.querySelector(".shop__image-list_five").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_five").dataset.price && diamonds > 4e4) {
+                document.querySelector(".shop__image-preview_five").classList.add("_active");
                 document.querySelector(".header-wrapper__count_money").innerHTML = points - price;
                 document.querySelector(".header-wrapper__count_diamond").innerHTML = diamonds - 4e4;
                 sessionStorage.setItem("money", points - price);
@@ -348,14 +348,13 @@
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
                     document.querySelector(".header-wrapper__count_diamond").classList.remove("_anim-buy");
-                    document.querySelector(".shop__image-preview_five").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_five").classList.add("_payed");
                 document.querySelector(".shop__image-list_five").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 document.querySelector(".shop__diamond").textContent = 0;
                 sessionStorage.setItem("price-5", 0);
-            } else {
+            } else if (points < price) {
                 document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
@@ -365,18 +364,18 @@
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let price = +document.querySelector(".shop__image-list_six").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_six").dataset.price) {
+                document.querySelector(".shop__image-preview_six").classList.add("_active");
                 document.querySelector(".header-wrapper__count_money").innerHTML = points - price;
                 sessionStorage.setItem("money", points - price);
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
-                    document.querySelector(".shop__image-preview_six").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_six").classList.add("_payed");
                 document.querySelector(".shop__image-list_six").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 sessionStorage.setItem("price-6", 0);
-            } else {
+            } else if (points < price) {
                 document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
@@ -386,18 +385,18 @@
             let points = +document.querySelector(".header-wrapper__count_money").innerHTML;
             let price = +document.querySelector(".shop__image-list_seven").dataset.price;
             if (points >= price && 0 != document.querySelector(".shop__image-list_seven").dataset.price) {
+                document.querySelector(".shop__image-preview_seven").classList.add("_active");
                 document.querySelector(".header-wrapper__count_money").innerHTML = points - price;
                 sessionStorage.setItem("money", points - price);
                 document.querySelector(".header-wrapper__count_money").classList.add("_anim-buy");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_anim-buy");
-                    document.querySelector(".shop__image-preview_seven").classList.add("_active");
                 }), 1e3);
                 document.querySelector(".shop__image-list_seven").classList.add("_payed");
                 document.querySelector(".shop__image-list_seven").dataset.price = 0;
                 document.querySelector(".shop__money").textContent = 0;
                 sessionStorage.setItem("price-7", 0);
-            } else {
+            } else if (points < price) {
                 document.querySelector(".header-wrapper__count_money").classList.add("_no-money");
                 setTimeout((() => {
                     document.querySelector(".header-wrapper__count_money").classList.remove("_no-money");
