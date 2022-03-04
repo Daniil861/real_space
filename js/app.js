@@ -456,6 +456,12 @@
                 gun_two.style.transform = `translateY(-${path}px)`;
             }), 100);
             setTimeout((() => {
+                enemy_one.classList.add("_target");
+                setTimeout((() => {
+                    enemy_one.classList.remove("_target");
+                }), 500);
+            }), 500);
+            setTimeout((() => {
                 gun_one.style.display = `none`;
                 gun_two.style.display = `none`;
             }), 1e3);
@@ -484,6 +490,12 @@
                 gun_one.style.transform = `translateY(-${path}px)`;
                 gun_two.style.transform = `translateY(-${path}px)`;
             }), 100);
+            setTimeout((() => {
+                enemy_two.classList.add("_target");
+                setTimeout((() => {
+                    enemy_two.classList.remove("_target");
+                }), 500);
+            }), 500);
             setTimeout((() => {
                 gun_one.style.display = `none`;
                 gun_two.style.display = `none`;
@@ -514,6 +526,12 @@
                 gun_two.style.transform = `translateY(-${path}px)`;
             }), 100);
             setTimeout((() => {
+                enemy_three.classList.add("_target");
+                setTimeout((() => {
+                    enemy_three.classList.remove("_target");
+                }), 500);
+            }), 500);
+            setTimeout((() => {
                 gun_one.style.display = `none`;
                 gun_two.style.display = `none`;
             }), 1e3);
@@ -543,6 +561,12 @@
                 gun_two.style.transform = `translateY(-${path}px)`;
             }), 100);
             setTimeout((() => {
+                enemy_four.classList.add("_target");
+                setTimeout((() => {
+                    enemy_four.classList.remove("_target");
+                }), 500);
+            }), 500);
+            setTimeout((() => {
                 gun_one.style.display = `none`;
                 gun_two.style.display = `none`;
             }), 1e3);
@@ -571,10 +595,20 @@
                 gun_two.style.transform = `translateY(-${path}px)`;
             }), 100);
             setTimeout((() => {
+                enemy_five.classList.add("_target");
+                setTimeout((() => {
+                    enemy_five.classList.remove("_target");
+                }), 500);
+            }), 500);
+            setTimeout((() => {
                 gun_one.style.display = `none`;
                 gun_two.style.display = `none`;
             }), 1e3);
             count_enem_five++;
+            enemy_five.classList.add("_target");
+            setTimeout((() => {
+                enemy_five.classList.remove("_target");
+            }), 500);
             if (3 == count_enem_five) {
                 setTimeout((() => {
                     enemy_five.classList.add("_caput");
@@ -599,10 +633,20 @@
                 gun_two.style.transform = `translateY(-${path}px)`;
             }), 100);
             setTimeout((() => {
+                enemy_six.classList.add("_target");
+                setTimeout((() => {
+                    enemy_six.classList.remove("_target");
+                }), 500);
+            }), 500);
+            setTimeout((() => {
                 gun_one.style.display = `none`;
                 gun_two.style.display = `none`;
             }), 1e3);
             count_enem_six++;
+            enemy_six.classList.add("_target");
+            setTimeout((() => {
+                enemy_six.classList.remove("_target");
+            }), 500);
             if (10 == count_enem_six) {
                 setTimeout((() => {
                     enemy_six.classList.add("_caput");
@@ -627,10 +671,20 @@
                 gun_two.style.transform = `translateY(-${path}px)`;
             }), 100);
             setTimeout((() => {
+                enemy_seven.classList.add("_target");
+                setTimeout((() => {
+                    enemy_seven.classList.remove("_target");
+                }), 500);
+            }), 500);
+            setTimeout((() => {
                 gun_one.style.display = `none`;
                 gun_two.style.display = `none`;
             }), 1e3);
             count_enem_seven++;
+            enemy_seven.classList.add("_target");
+            setTimeout((() => {
+                enemy_seven.classList.remove("_target");
+            }), 500);
             if (10 == count_enem_seven) {
                 setTimeout((() => {
                     enemy_seven.classList.add("_caput");
