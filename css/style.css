@@ -700,6 +700,9 @@ body._loaded {
 .game__enemy._anim-four {
   animation: move-enemy 45s ease infinite;
 }
+.game__enemy._target {
+  animation: target-enemy 0.3s ease;
+}
 .game__enemy_one {
   top: 10px;
   left: 10px;
@@ -1190,5 +1193,22 @@ body._loaded {
   100% {
     color: #fff;
     transform: scale(1) rotate(0deg);
+  }
+}
+@keyframes target-enemy {
+  0% {
+    opacity: 1;
+  }
+  30% {
+    opacity: 0.1;
+  }
+  60% {
+    opacity: 0.9;
+  }
+  80% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
   }
 }
